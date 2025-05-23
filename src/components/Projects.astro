@@ -37,7 +37,7 @@ const {
     },
     {
       title: "EcoEventMobile",
-      description: "Descripción del proyecto 3. Aquí puedes escribir sobre los detalles, tecnologías y funcionalidades.",
+      description: "EcoEventMobile es una aplicación móvil React Native para la gestión y organización de eventos ecológicos y sostenibles. Permite a los usuarios descubrir, crear y participar en eventos que promuevan la conciencia ambiental.",
       image: `${baseUrl}/projects/ecoevent-mobile/image-1.jpg`,
       tags: ["React Native", "TypeScript", "Tailwind","AWS"],
       link: `${baseUrl}/gallery/ecoevent-mobile`,
@@ -105,8 +105,17 @@ const placeholderBg = "bg-gradient-to-br from-blue-900/40 to-purple-900/40";
           
           <div class="p-6">
             <h3 class="text-xl font-bold mb-2 text-white group-hover:text-blue-400 transition-colors">
-              {project.title}
-              <span class="inline-block w-6 h-0.5 bg-blue-500 ml-2 transform -translate-y-1 group-hover:w-12 transition-all duration-300"></span>
+              {project.link ? (
+                <a href={project.link} class="hover:text-blue-400 transition-colors cursor-pointer">
+                  {project.title}
+                  <span class="inline-block w-6 h-0.5 bg-blue-500 ml-2 transform -translate-y-1 group-hover:w-12 transition-all duration-300"></span>
+                </a>
+              ) : (
+                <>
+                  {project.title}
+                  <span class="inline-block w-6 h-0.5 bg-blue-500 ml-2 transform -translate-y-1 group-hover:w-12 transition-all duration-300"></span>
+                </>
+              )}
             </h3>
             
             <p class="text-gray-300 mb-4 line-clamp-3">{project.description}</p>
