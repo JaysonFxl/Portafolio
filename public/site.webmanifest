@@ -1,0 +1,21 @@
+{
+  "name": "Jayson Flores - Portafolio",
+  "short_name": "JaysonFxl",
+  "description": "Portafolio personal de Jayson Flores - Desarrollador FullStack",
+  "icons": [
+    {
+      "src": "/Portafolio/maletin-icono.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/Portafolio/maletin-icono.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#1e40af",
+  "background_color": "#000000",
+  "display": "standalone",
+  "start_url": "/Portafolio/"
+} 
