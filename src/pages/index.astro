@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Projects from '../components/Projects.astro';
+import Skills from '../components/Skills.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+// Datos personalizados para tu portafolio
+const personalInfo = {
+  name: "Jayson Flores",
+  title: "Desarrollador FullStack",
+  email: "fseba196@gmail.com",
+  location: "Mulchen, Chile",
+  socialLinks: [
+    {
+      platform: "LinkedIn",
+      url: "https://www.linkedin.com/in/jayson-flores-cartes-7b2536249/",
+      icon: "linkedin"
+    },
+    {
+      platform: "GitHub",
+      url: "https://github.com/JaysonFxl",
+      icon: "github"
+    },
+    {
+      platform: "Gmail",
+      url: "https://mail.google.com/mail/?view=cm&to=fseba196@gmail.com",
+      icon: "email"
+    }
+  ]
+};
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout title={`Portafolio de ${personalInfo.name} | ${personalInfo.title}`}>
+  <Header />
+  
+  <main>
+    <Hero name={personalInfo.name} title={personalInfo.title} />
+    <About 
+      description={[
+        "Soy un desarrollador web apasionado por crear experiencias digitales excepcionales.",
+        "Con experiencia en tecnologías frontend y backend, me enfoco en construir aplicaciones web modernas, rápidas y accesibles.",
+        "Me gusta aprender constantemente nuevas tecnologías y enfrentar desafíos que me permitan crecer profesionalmente."
+      ]}
+    />
+    <Projects />
+    <Skills />
+    <Contact 
+      email={personalInfo.email}
+      location={personalInfo.location}
+      socialLinks={personalInfo.socialLinks}
+    />
+  </main>
+  
+  <Footer name={personalInfo.name} />
+</Layout>

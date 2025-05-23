@@ -1,0 +1,295 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const projectData = {
+  title: "EcoEventMobile",
+  description: "Aplicación móvil para eventos ecológicos - Galería de imágenes",
+  tags: ["React Native", "TypeScript", "Tailwind", "AWS"],
+  github: "https://github.com/JaysonFxl/EventMobile"
+};
+
+// Array de imágenes placeholder - el usuario las reemplazará
+const images = Array.from({ length: 20 }, (_, i) => ({
+  id: i + 1,
+  src: `/projects/ecoevent-mobile/image-${i + 1}.jpg`,
+  alt: `EcoEventMobile Screenshot ${i + 1}`,
+  title: `Captura de pantalla ${i + 1}`
+}));
+---
+
+<Layout title={`${projectData.title} - Galería`}>
+  <main class="min-h-screen bg-gradient-to-b from-black via-blue-950 to-black">
+    <!-- Header de la galería -->
+    <div class="relative pt-20 pb-12">
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,transparent_calc(100%_-_1px),rgba(56,189,248,0.1)_calc(100%_-_1px))] bg-[size:5vw_5vw]"></div>
+      
+      <div class="container mx-auto px-6 relative z-10">
+        <!-- Botón de regreso -->
+        <div class="mb-8">
+          <a 
+            href="/#proyectos" 
+            class="inline-flex items-center px-4 py-2 bg-blue-900/30 text-blue-300 rounded-lg border border-blue-800/30 hover:bg-blue-800/30 transition-all duration-300 backdrop-blur-sm"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+            </svg>
+            Volver a Proyectos
+          </a>
+        </div>
+
+        <!-- Información del proyecto -->
+        <div class="text-center mb-12">
+          <div class="inline-block mb-4">
+            <span class="px-3 py-1 bg-blue-900/30 text-blue-400 rounded-full text-xs font-medium border border-blue-800/30 backdrop-blur-sm">
+              GALERÍA DEL PROYECTO
+            </span>
+          </div>
+          
+          <h1 class="text-5xl font-bold text-white mb-4">{projectData.title}</h1>
+          <div class="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full mb-6"></div>
+          <p class="text-xl text-blue-100/70 max-w-3xl mx-auto mb-8">{projectData.description}</p>
+          
+          <div class="bg-blue-900/20 border border-blue-800/30 rounded-lg p-4 max-w-3xl mx-auto mb-8 backdrop-blur-sm">
+            <h3 class="text-lg font-semibold text-blue-300 mb-2">🌱 Características principales:</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-blue-100/80">
+              <div class="flex items-center">
+                <span class="text-blue-400 mr-2">•</span>
+                Eventos ecológicos y sostenibles
+              </div>
+              <div class="flex items-center">
+                <span class="text-blue-400 mr-2">•</span>
+                Gestión de participantes
+              </div>
+              <div class="flex items-center">
+                <span class="text-blue-400 mr-2">•</span>
+                Notificaciones push en tiempo real
+              </div>
+              <div class="flex items-center">
+                <span class="text-blue-400 mr-2">•</span>
+                Integración con servicios cloud (AWS)
+              </div>
+              <div class="flex items-center">
+                <span class="text-blue-400 mr-2">•</span>
+                Interface nativa React Native
+              </div>
+              <div class="flex items-center">
+                <span class="text-blue-400 mr-2">•</span>
+                Sistema de seguimiento de impacto ambiental
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tags del proyecto -->
+          <div class="flex flex-wrap justify-center gap-3 mb-8">
+            {projectData.tags.map((tag) => (
+              <span class="px-4 py-2 bg-blue-900/30 text-blue-300 rounded-full text-sm border border-blue-800/30 backdrop-blur-sm">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <!-- Enlace a GitHub -->
+          <a 
+            href={projectData.github} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-lg hover:from-blue-500 hover:to-blue-600 transition-all duration-300 shadow-lg"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.167 6.839 9.489.5.092.682-.217.682-.48 0-.237-.01-1.017-.014-1.845-2.782.603-3.369-1.188-3.369-1.188-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.09-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.022A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.841-2.337 4.687-4.565 4.935.359.309.678.917.678 1.852 0 1.335-.012 2.415-.012 2.741 0 .267.18.577.688.48C19.137 20.164 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+            </svg>
+            Ver en GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid de la galería -->
+    <div class="container mx-auto px-6 pb-24">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {images.map((image, index) => (
+          <div 
+            class="group relative aspect-[3/4] bg-gradient-to-br from-blue-900/20 to-purple-900/20 rounded-xl overflow-hidden border border-white/10 hover:border-blue-500/30 transition-all duration-300 cursor-pointer"
+            data-image-index={index}
+          >
+            <!-- Placeholder para imagen -->
+            <img 
+              src={image.src} 
+              alt={image.alt}
+              class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-300 group-hover:scale-105"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <!-- Fallback placeholder si la imagen no existe -->
+            <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-900/40 to-purple-900/40 group-hover:from-blue-800/60 group-hover:to-purple-800/60 transition-all duration-300" style="display: none;">
+              <div class="text-center text-white/50 group-hover:text-white/70">
+                <div class="text-2xl mb-2">📱</div>
+                <div class="text-xs">Imagen {image.id}</div>
+              </div>
+            </div>
+            
+            <!-- Overlay con efecto hover -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-white font-medium text-sm">{image.title}</h3>
+                <p class="text-blue-200/80 text-xs mt-1">Click para ver en tamaño completo</p>
+              </div>
+            </div>
+
+            <!-- Icono de zoom en hover -->
+            <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="bg-blue-600/80 rounded-full p-2 backdrop-blur-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Decoraciones futuristas -->
+            <div class="absolute top-2 left-2 w-4 h-4 border-t border-l border-blue-400/30"></div>
+            <div class="absolute bottom-2 right-2 w-4 h-4 border-b border-r border-blue-400/30"></div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Modal placeholder para vista ampliada -->
+      <div id="imageModal" class="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="relative max-w-2xl w-full max-h-[80vh]">
+          <button id="closeModal" class="absolute -top-12 right-0 text-white hover:text-blue-400 transition-colors z-10 bg-blue-900/30 rounded-full p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </button>
+          <div id="modalContent" class="bg-gradient-to-br from-blue-900/20 to-purple-900/20 rounded-xl border border-white/10 overflow-hidden">
+            <!-- Contenido del modal se llenará dinámicamente -->
+            <div class="text-center text-white p-8">
+              <div class="text-4xl mb-4">📱</div>
+              <h3 class="text-xl font-bold mb-2">Vista ampliada</h3>
+              <p class="text-blue-100/70">Aquí se mostrará la imagen seleccionada</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Script para manejar el modal de imágenes
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('imageModal');
+      const closeModal = document.getElementById('closeModal');
+      const modalContent = document.getElementById('modalContent');
+      const imageCards = document.querySelectorAll('[data-image-index]');
+      let currentImageIndex = 0;
+
+      // Array de imágenes para el modal
+      const images = Array.from({ length: 20 }, (_, i) => ({
+        id: i + 1,
+        src: `/projects/ecoevent-mobile/image-${i + 1}.jpg`,
+        alt: `EcoEventMobile Screenshot ${i + 1}`,
+        title: `Captura de pantalla ${i + 1}`
+      }));
+
+      function showImageInModal(index: number) {
+        const image = images[index];
+        currentImageIndex = index;
+        
+        if (modalContent) {
+          modalContent.innerHTML = `
+            <div class="relative">
+              <img 
+                src="${image.src}" 
+                alt="${image.alt}"
+                class="w-full max-h-[60vh] object-contain bg-black/20"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="w-full h-96 flex items-center justify-center bg-gradient-to-br from-blue-900/40 to-purple-900/40" style="display: none;">
+                <div class="text-center text-white">
+                  <div class="text-4xl mb-4">📱</div>
+                  <h3 class="text-xl font-bold mb-2">${image.title}</h3>
+                  <p class="text-blue-100/70">Imagen no disponible</p>
+                </div>
+              </div>
+              
+              <!-- Botones de navegación -->
+              ${index > 0 ? `
+                <button id="prevImage" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white rounded-full p-3 transition-all duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              ` : ''}
+              
+              ${index < images.length - 1 ? `
+                <button id="nextImage" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white rounded-full p-3 transition-all duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              ` : ''}
+            </div>
+            <div class="p-6 bg-gradient-to-r from-blue-900/30 to-purple-900/30">
+              <h3 class="text-lg font-bold text-white mb-2">${image.title}</h3>
+              <p class="text-blue-100/70 text-sm">EcoEventMobile - Imagen ${image.id} de 20</p>
+              <div class="flex items-center justify-between mt-4">
+                <div class="flex space-x-2">
+                  <span class="px-2 py-1 bg-blue-600/30 text-blue-300 rounded text-xs">Screenshot</span>
+                  <span class="px-2 py-1 bg-purple-600/30 text-purple-300 rounded text-xs">Mobile App</span>
+                </div>
+                <p class="text-xs text-white/50">← → arrow keys or ESC to close</p>
+              </div>
+            </div>
+          `;
+
+          // Agregar event listeners para los botones de navegación
+          const prevBtn = document.getElementById('prevImage');
+          const nextBtn = document.getElementById('nextImage');
+          
+          if (prevBtn) {
+            prevBtn.addEventListener('click', () => showImageInModal(index - 1));
+          }
+          
+          if (nextBtn) {
+            nextBtn.addEventListener('click', () => showImageInModal(index + 1));
+          }
+        }
+      }
+
+      // Abrir modal al hacer clic en una imagen
+      imageCards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+          showImageInModal(index);
+          modal?.classList.remove('hidden');
+          modal?.classList.add('flex');
+        });
+      });
+
+      // Cerrar modal
+      closeModal?.addEventListener('click', () => {
+        modal?.classList.add('hidden');
+        modal?.classList.remove('flex');
+      });
+
+      // Cerrar modal al hacer clic fuera del contenido
+      modal?.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+        }
+      });
+
+      // Navegación con teclado
+      document.addEventListener('keydown', (e) => {
+        if (modal && !modal.classList.contains('hidden')) {
+          if (e.key === 'Escape') {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+          } else if (e.key === 'ArrowLeft' && currentImageIndex > 0) {
+            showImageInModal(currentImageIndex - 1);
+          } else if (e.key === 'ArrowRight' && currentImageIndex < images.length - 1) {
+            showImageInModal(currentImageIndex + 1);
+          }
+        }
+      });
+    });
+  </script>
+</Layout> 
