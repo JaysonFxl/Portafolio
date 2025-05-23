@@ -7,5 +7,5 @@ export default defineConfig({
   integrations: [tailwind()],
   output: 'static',
   site: 'https://jaysonfxl.github.io',
-  base: process.env.NODE_ENV === 'production' ? '/Portafolio' : '',
+  base: '/Portafolio',
 });
