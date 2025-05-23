@@ -27,7 +27,7 @@ const images = Array.from({ length: 20 }, (_, i) => ({
         <!-- Botón de regreso -->
         <div class="mb-8">
           <a 
-            href="/#proyectos" 
+            href={`${import.meta.env.BASE_URL}#proyectos`}
             class="inline-flex items-center px-4 py-2 bg-blue-900/30 text-blue-300 rounded-lg border border-blue-800/30 hover:bg-blue-800/30 transition-all duration-300 backdrop-blur-sm"
           >
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
