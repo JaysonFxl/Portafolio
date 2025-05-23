@@ -1,6 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
+// Helper para crear rutas correctas
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL;
+
 const projectData = {
   title: "EcoEventMobile",
   description: "Aplicación móvil para eventos ecológicos - Galería de imágenes",
@@ -11,7 +14,7 @@ const projectData = {
 // Array de imágenes placeholder - el usuario las reemplazará
 const images = Array.from({ length: 20 }, (_, i) => ({
   id: i + 1,
-  src: `${import.meta.env.BASE_URL}projects/ecoevent-mobile/image-${i + 1}.jpg`,
+  src: `${baseUrl}/projects/ecoevent-mobile/image-${i + 1}.jpg`,
   alt: `EcoEventMobile Screenshot ${i + 1}`,
   title: `Captura de pantalla ${i + 1}`
 }));
@@ -27,7 +30,7 @@ const images = Array.from({ length: 20 }, (_, i) => ({
         <!-- Botón de regreso -->
         <div class="mb-8">
           <a 
-            href={`${import.meta.env.BASE_URL}#proyectos`}
+            href={`${baseUrl}/#proyectos`}
             class="inline-flex items-center px-4 py-2 bg-blue-900/30 text-blue-300 rounded-lg border border-blue-800/30 hover:bg-blue-800/30 transition-all duration-300 backdrop-blur-sm"
           >
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
@@ -181,10 +184,14 @@ const images = Array.from({ length: 20 }, (_, i) => ({
       const imageCards = document.querySelectorAll('[data-image-index]');
       let currentImageIndex = 0;
 
+      // Obtener BASE_URL del meta tag o usar fallback
+      const metaElement = document.querySelector('meta[name="astro-base-url"]');
+      const baseUrl = metaElement ? metaElement.getAttribute('content') || '/Portafolio' : '/Portafolio';
+
       // Array de imágenes para el modal
       const images = Array.from({ length: 20 }, (_, i) => ({
         id: i + 1,
-        src: `${import.meta.env.BASE_URL}projects/ecoevent-mobile/image-${i + 1}.jpg`,
+        src: `${baseUrl}/projects/ecoevent-mobile/image-${i + 1}.jpg`,
         alt: `EcoEventMobile Screenshot ${i + 1}`,
         title: `Captura de pantalla ${i + 1}`
       }));

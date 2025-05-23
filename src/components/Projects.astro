@@ -13,31 +13,34 @@ interface Props {
   projects?: Project[];
 }
 
+// Helper para crear rutas correctas
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL;
+
 const { 
   title = "Mis Proyectos",
   projects = [
     {
       title: "Proyecto El Futbolito",
       description: "El Futbolito es una aplicación web para la gestión de reservas de canchas de fútbol.",
-      image: `${import.meta.env.BASE_URL}projects/futbolito/image-1.png`,
+      image: `${baseUrl}/projects/futbolito/image-1.png`,
       tags: ["React","JavaScript","HTML5","CSS", "Django", "PostgreSQL"],
-      link: `${import.meta.env.BASE_URL}gallery/futbolito`,
+      link: `${baseUrl}/gallery/futbolito`,
       github: "https://github.com/JaysonFxl/ProyectoRBP"
     },
     {
       title: "AhorroAPP",
       description: "AhorroAPP es una aplicación web para la gestión de ahorros. Permite tener un historial con graficos de ahorro a nivel personal.",
-      image: `${import.meta.env.BASE_URL}projects/ahorroapp/image-1.png`,
+      image: `${baseUrl}/projects/ahorroapp/image-1.png`,
       tags: ["React", "HTML5","CSS","Django","PostgreSQL"],
-      link: `${import.meta.env.BASE_URL}gallery/ahorroapp`,
+      link: `${baseUrl}/gallery/ahorroapp`,
       github: "https://github.com/JaysonFxl/AhorroAPP"
     },
     {
       title: "EcoEventMobile",
       description: "Descripción del proyecto 3. Aquí puedes escribir sobre los detalles, tecnologías y funcionalidades.",
-      image: `${import.meta.env.BASE_URL}projects/ecoevent-mobile/image-1.jpg`,
+      image: `${baseUrl}/projects/ecoevent-mobile/image-1.jpg`,
       tags: ["React Native", "TypeScript", "Tailwind","AWS"],
-      link: `${import.meta.env.BASE_URL}gallery/ecoevent-mobile`,
+      link: `${baseUrl}/gallery/ecoevent-mobile`,
       github: "https://github.com/JaysonFxl/EventMobile"
     }
   ]
