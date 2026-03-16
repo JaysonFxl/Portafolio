@@ -1,58 +1,55 @@
 ---
-// Define las propiedades del componente si es necesario
+// Header with active section tracking
 ---
 
-<header class="fixed w-full py-4 px-6 z-50 transition-all duration-300" id="header">
+<header class="fixed w-full py-4 px-4 sm:px-6 z-50 transition-all duration-500" id="header">
   <div class="container mx-auto">
-    <div class="backdrop-blur-lg bg-black/30 rounded-2xl border border-white/10 shadow-lg px-6 py-4 flex justify-between items-center">
-      <div class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
-        <a href="/" class="flex items-center gap-2" onclick="window.location.reload(); return false;">
-          <span class="text-3xl">⬡</span>
-          <span>Mi Portafolio</span>
+    <div class="backdrop-blur-2xl bg-white/[0.03] rounded-2xl border border-white/[0.06] shadow-[0_8px_32px_rgba(0,0,0,0.3)] px-5 py-3.5 flex justify-between items-center transition-all duration-500" id="header-inner">
+      <div class="text-xl font-bold">
+        <a href="/" class="flex items-center gap-2.5 group" onclick="window.location.reload(); return false;">
+          <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-shadow duration-300">
+            JF
+          </div>
+          <span class="text-gradient font-bold tracking-tight">Jayson Flores</span>
         </a>
       </div>
       
       <nav class="hidden md:block">
-        <ul class="flex space-x-8">
-          <li><a href="#inicio" class="text-white/90 hover:text-blue-400 transition-colors py-2 relative group">
+        <ul class="flex space-x-1">
+          <li><a href="#inicio" class="nav-link px-4 py-2 rounded-lg text-white/60 hover:text-white hover:bg-white/[0.06] transition-all duration-300 text-sm font-medium" data-section="inicio">
             Inicio
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
           </a></li>
-          <li><a href="#sobre-mi" class="text-white/90 hover:text-blue-400 transition-colors py-2 relative group">
+          <li><a href="#sobre-mi" class="nav-link px-4 py-2 rounded-lg text-white/60 hover:text-white hover:bg-white/[0.06] transition-all duration-300 text-sm font-medium" data-section="sobre-mi">
             Sobre Mí
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
           </a></li>
-          <li><a href="#proyectos" class="text-white/90 hover:text-blue-400 transition-colors py-2 relative group">
+          <li><a href="#proyectos" class="nav-link px-4 py-2 rounded-lg text-white/60 hover:text-white hover:bg-white/[0.06] transition-all duration-300 text-sm font-medium" data-section="proyectos">
             Proyectos
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
           </a></li>
-          <li><a href="#habilidades" class="text-white/90 hover:text-blue-400 transition-colors py-2 relative group">
+          <li><a href="#habilidades" class="nav-link px-4 py-2 rounded-lg text-white/60 hover:text-white hover:bg-white/[0.06] transition-all duration-300 text-sm font-medium" data-section="habilidades">
             Habilidades
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
           </a></li>
-          <li><a href="#contacto" class="text-white/90 hover:text-blue-400 transition-colors py-2 relative group">
+          <li><a href="#contacto" class="nav-link px-4 py-2 rounded-lg text-white/60 hover:text-white hover:bg-white/[0.06] transition-all duration-300 text-sm font-medium" data-section="contacto">
             Contacto
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
           </a></li>
         </ul>
       </nav>
       
-      <button class="md:hidden text-white" id="mobile-menu-button" aria-label="Menú">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      <button class="md:hidden text-white/70 hover:text-white transition-colors p-2 rounded-lg hover:bg-white/[0.06]" id="mobile-menu-button" aria-label="Menú">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
     
     <!-- Menú móvil -->
-    <div class="md:hidden hidden absolute top-20 left-0 w-full px-6" id="mobile-menu">
-      <div class="rounded-2xl bg-black/80 backdrop-blur-lg border border-white/10 shadow-xl p-4">
-        <ul class="flex flex-col space-y-4">
-          <li><a href="#inicio" class="text-white/90 hover:text-blue-400 transition-colors block px-4 py-2">Inicio</a></li>
-          <li><a href="#sobre-mi" class="text-white/90 hover:text-blue-400 transition-colors block px-4 py-2">Sobre Mí</a></li>
-          <li><a href="#proyectos" class="text-white/90 hover:text-blue-400 transition-colors block px-4 py-2">Proyectos</a></li>
-          <li><a href="#habilidades" class="text-white/90 hover:text-blue-400 transition-colors block px-4 py-2">Habilidades</a></li>
-          <li><a href="#contacto" class="text-white/90 hover:text-blue-400 transition-colors block px-4 py-2">Contacto</a></li>
+    <div class="md:hidden hidden absolute top-full left-0 w-full px-4 sm:px-6 pt-2" id="mobile-menu">
+      <div class="rounded-2xl bg-[#0a0a1a]/95 backdrop-blur-2xl border border-white/[0.06] shadow-2xl p-3">
+        <ul class="flex flex-col space-y-1">
+          <li><a href="#inicio" class="text-white/70 hover:text-white hover:bg-white/[0.06] transition-all block px-4 py-3 rounded-xl text-sm font-medium">Inicio</a></li>
+          <li><a href="#sobre-mi" class="text-white/70 hover:text-white hover:bg-white/[0.06] transition-all block px-4 py-3 rounded-xl text-sm font-medium">Sobre Mí</a></li>
+          <li><a href="#proyectos" class="text-white/70 hover:text-white hover:bg-white/[0.06] transition-all block px-4 py-3 rounded-xl text-sm font-medium">Proyectos</a></li>
+          <li><a href="#habilidades" class="text-white/70 hover:text-white hover:bg-white/[0.06] transition-all block px-4 py-3 rounded-xl text-sm font-medium">Habilidades</a></li>
+          <li><a href="#contacto" class="text-white/70 hover:text-white hover:bg-white/[0.06] transition-all block px-4 py-3 rounded-xl text-sm font-medium">Contacto</a></li>
         </ul>
       </div>
     </div>
@@ -60,38 +57,56 @@
 </header>
 
 <script>
-  // Script para manejar el menú móvil
   document.addEventListener('DOMContentLoaded', function() {
     const menuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     const header = document.getElementById('header');
+    const headerInner = document.getElementById('header-inner');
     
     // Toggle menú móvil
     menuButton?.addEventListener('click', () => {
       mobileMenu?.classList.toggle('hidden');
     });
     
-    // Cambiar estilo del header al hacer scroll
+    // Header shrink on scroll
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
         header?.classList.add('py-2');
         header?.classList.remove('py-4');
+        headerInner?.classList.add('shadow-[0_8px_40px_rgba(0,0,0,0.5)]');
       } else {
         header?.classList.add('py-4');
         header?.classList.remove('py-2');
+        headerInner?.classList.remove('shadow-[0_8px_40px_rgba(0,0,0,0.5)]');
       }
     });
+    
+    // Active section tracking
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.classList.remove('!text-white', 'bg-white/[0.08]');
+            if (link.getAttribute('data-section') === id) {
+              link.classList.add('!text-white', 'bg-white/[0.08]');
+            }
+          });
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
+    
+    sections.forEach(section => sectionObserver.observe(section));
     
     // Cerrar menú al hacer clic en un enlace
     const mobileLinks = mobileMenu?.querySelectorAll('a');
     mobileLinks?.forEach(link => {
       link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
+        mobileMenu?.classList.add('hidden');
       });
     });
   });
 </script>
-
-<style>
-  /* Estilos adicionales si son necesarios */
-</style> 
