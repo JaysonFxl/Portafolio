@@ -149,30 +149,16 @@ const categoryIcons: Record<string, string> = {
             </div>
             
             <!-- Skills list -->
-            <div class="space-y-4">
+            <div class="space-y-2">
               {category.skills.map((skill) => (
-                <div class="group/skill flex items-center gap-3 p-2.5 -mx-2.5 rounded-xl hover:bg-white/[0.03] transition-all duration-300">
+                <div class="group/skill flex items-center gap-3.5 p-3 -mx-3 rounded-xl hover:bg-white/[0.04] transition-all duration-300">
                   <!-- Skill icon -->
-                  <div class={`w-9 h-9 rounded-lg ${colors.iconBg} flex items-center justify-center flex-shrink-0 ${colors.text} transition-all duration-300 group-hover/skill:scale-110`}>
-                    <div class="w-4 h-4" set:html={skillIcons[skill.name] || `<span class="text-xs font-bold">${skill.name.charAt(0)}</span>`} />
+                  <div class={`w-10 h-10 rounded-xl ${colors.iconBg} flex items-center justify-center flex-shrink-0 ${colors.text} transition-all duration-300 group-hover/skill:scale-110`}>
+                    <div class="w-5 h-5" set:html={skillIcons[skill.name] || `<span class="text-sm font-bold">${skill.name.charAt(0)}</span>`} />
                   </div>
                   
-                  <!-- Skill details -->
-                  <div class="flex-1 min-w-0">
-                    <div class="flex justify-between items-center mb-1.5">
-                      <span class="font-medium text-white/90 text-sm">{skill.name}</span>
-                      <span class={`text-xs font-semibold ${colors.text} opacity-70`}>{skill.level}%</span>
-                    </div>
-                    
-                    <!-- Progress bar -->
-                    <div class="h-1.5 bg-white/[0.04] rounded-full overflow-hidden relative">
-                      <div 
-                        class={`h-full bg-gradient-to-r ${colors.gradient} rounded-full relative transition-all duration-700`}
-                        style={`width: ${skill.level}%`}>
-                        <div class="absolute right-0 top-0 h-full w-1.5 bg-white/40 rounded-full"></div>
-                      </div>
-                    </div>
-                  </div>
+                  <!-- Skill name -->
+                  <span class="font-semibold text-white/90 text-base">{skill.name}</span>
                 </div>
               ))}
             </div>
