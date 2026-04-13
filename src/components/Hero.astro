@@ -23,6 +23,19 @@ const {
     
     <!-- Diagonal lines -->
     <div class="absolute inset-0 opacity-[0.02] bg-[repeating-linear-gradient(45deg,transparent,transparent_40px,rgba(139,92,246,0.15)_40px,rgba(139,92,246,0.15)_41px)]"></div>
+
+    <!-- Animated code layer -->
+    <div class="hero-code-layer absolute inset-0 z-[1] pointer-events-none" aria-hidden="true">
+      <div class="hero-code-panel absolute -right-28 top-10 md:right-0 md:top-12 w-[680px] max-w-[95vw] h-[72vh] rounded-2xl border border-cyan-400/10 bg-[#050510]/45 backdrop-blur-[2px] overflow-hidden">
+        <div class="hero-code-header h-10 border-b border-cyan-400/10 bg-black/20 flex items-center px-4 gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-rose-400/70"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-300/70"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400/70"></span>
+          <span class="text-[10px] uppercase tracking-[0.22em] text-cyan-200/35 ml-2">src/app/services/core.ts</span>
+        </div>
+        <pre class="hero-code-content h-[calc(100%-2.5rem)] px-5 py-4 text-[11px] leading-6 overflow-hidden text-cyan-200/80"><code id="heroCode"></code><span id="heroCodeCursor" class="hero-code-cursor">|</span></pre>
+      </div>
+    </div>
   </div>
   
   <div class="container mx-auto px-6 flex flex-col md:flex-row items-center relative z-10 py-24">
@@ -109,3 +122,127 @@ const {
   <!-- Bottom gradient fade -->
   <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050510] to-transparent z-20"></div>
 </section>
+
+<style>
+  .hero-code-layer {
+    mask-image: radial-gradient(circle at 70% 40%, black 20%, transparent 76%);
+    -webkit-mask-image: radial-gradient(circle at 70% 40%, black 20%, transparent 76%);
+  }
+
+  .hero-code-panel {
+    box-shadow: inset 0 0 120px rgba(14, 116, 144, 0.15), 0 20px 80px rgba(2, 6, 23, 0.6);
+    transform: perspective(1200px) rotateY(-16deg) rotateX(3deg);
+    animation: hero-code-drift 12s ease-in-out infinite;
+    opacity: 0.9;
+  }
+
+  .hero-code-content {
+    font-family: var(--font-mono);
+    text-shadow: 0 0 18px rgba(34, 211, 238, 0.2);
+    background: linear-gradient(180deg, rgba(8, 145, 178, 0.08) 0%, rgba(8, 145, 178, 0) 90%);
+  }
+
+  .hero-code-cursor {
+    display: inline-block;
+    color: rgba(103, 232, 249, 0.9);
+    animation: hero-cursor-blink 0.9s steps(1, end) infinite;
+  }
+
+  @keyframes hero-cursor-blink {
+    0%, 45% { opacity: 1; }
+    46%, 100% { opacity: 0; }
+  }
+
+  @keyframes hero-code-drift {
+    0%, 100% { transform: perspective(1200px) rotateY(-16deg) rotateX(3deg) translateY(0); }
+    50% { transform: perspective(1200px) rotateY(-14deg) rotateX(2deg) translateY(-10px); }
+  }
+
+  @media (max-width: 768px) {
+    .hero-code-layer {
+      mask-image: radial-gradient(circle at 70% 28%, black 12%, transparent 72%);
+      -webkit-mask-image: radial-gradient(circle at 70% 28%, black 12%, transparent 72%);
+    }
+
+    .hero-code-panel {
+      right: -38%;
+      top: 2rem;
+      width: 560px;
+      height: 54vh;
+      transform: perspective(1200px) rotateY(-12deg) rotateX(2deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-code-panel,
+    .hero-code-cursor {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const output = document.getElementById('heroCode');
+    if (!output) return;
+
+    const lines = [
+      'import { Injectable } from "@angular/core";',
+      'import { HttpClient } from "@angular/common/http";',
+      '',
+      '@Injectable({ providedIn: "root" })',
+      'export class PaymentGatewayService {',
+      '  constructor(private readonly http: HttpClient) {}',
+      '',
+      '  syncInvoices(accountId: string) {',
+      '    return this.http.post("/api/invoices/sync", { accountId });',
+      '  }',
+      '}',
+      '',
+      '// Rust microservice',
+      'pub async fn charge_payment(req: ChargeRequest) -> Result<Response> {',
+      '    let validated = validator::assert(req)?;',
+      '    payment_core::execute(validated).await',
+      '}',
+      '',
+      '// .NET API adapter',
+      'app.MapPost("/payments/charge", async (ChargeDto dto) => {',
+      '    return await mediator.Send(new ChargeCommand(dto));',
+      '});'
+    ];
+
+    const fullText = `${lines.join('\n')}\n`;
+    let currentLength = 0;
+    let isDeleting = false;
+    let delay = 32;
+
+    const tick = () => {
+      if (!isDeleting) {
+        currentLength += 1;
+        output.textContent = fullText.slice(0, currentLength);
+
+        if (currentLength >= fullText.length) {
+          isDeleting = true;
+          delay = 1400;
+        } else {
+          delay = Math.random() > 0.93 ? 85 : 26;
+        }
+      } else {
+        currentLength -= 2;
+        if (currentLength < 0) currentLength = 0;
+        output.textContent = fullText.slice(0, currentLength);
+
+        if (currentLength === 0) {
+          isDeleting = false;
+          delay = 480;
+        } else {
+          delay = 10;
+        }
+      }
+
+      window.setTimeout(tick, delay);
+    };
+
+    tick();
+  });
+</script>
