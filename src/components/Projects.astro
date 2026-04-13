@@ -41,6 +41,13 @@ const {
       tags: ["React Native", "TypeScript", "Tailwind","AWS"],
       link: `${baseUrl}/gallery/ecoevent-mobile`,
       github: "https://github.com/JaysonFxl/EventMobile"
+    },
+    {
+      title: "Yenito",
+      description: "Yenito es una aplicación web enfocada en una experiencia moderna y eficiente, construida principalmente con Angular, TypeScript y Tailwind CSS, con backend en Rust y .NET.",
+      image: `${baseUrl}/projects/yenito/image-1.png`,
+      tags: ["Angular", "TypeScript", "Tailwind CSS", "Rust", ".NET"],
+      link: `${baseUrl}/gallery/yenito`
     }
   ]
 } = Astro.props;
@@ -49,14 +56,18 @@ const {
 const tagColors: Record<string, string> = {
   "React": "text-cyan-300 bg-cyan-500/10 border-cyan-500/20",
   "React Native": "text-cyan-300 bg-cyan-500/10 border-cyan-500/20",
+  "Angular": "text-red-300 bg-red-500/10 border-red-500/20",
   "JavaScript": "text-yellow-300 bg-yellow-500/10 border-yellow-500/20",
   "TypeScript": "text-blue-300 bg-blue-500/10 border-blue-500/20",
   "HTML5": "text-orange-300 bg-orange-500/10 border-orange-500/20",
   "CSS": "text-blue-300 bg-blue-500/10 border-blue-500/20",
+  "Tailwind CSS": "text-teal-300 bg-teal-500/10 border-teal-500/20",
   "Django": "text-emerald-300 bg-emerald-500/10 border-emerald-500/20",
   "PostgreSQL": "text-sky-300 bg-sky-500/10 border-sky-500/20",
   "Tailwind": "text-teal-300 bg-teal-500/10 border-teal-500/20",
   "AWS": "text-amber-300 bg-amber-500/10 border-amber-500/20",
+  "Rust": "text-orange-300 bg-orange-500/10 border-orange-500/20",
+  ".NET": "text-indigo-300 bg-indigo-500/10 border-indigo-500/20",
 };
 
 const defaultTagColor = "text-blue-300 bg-blue-500/10 border-blue-500/20";
